@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Notes App</title>
+  </head>
+  <body>
+    <form id="note-form">
+      <input type="text" id="title" placeholder="Note Title" required />
+      <textarea id="content" placeholder="Note Content" required></textarea>
+      <input type="date" id="target-date" />
+      <select id="bg-color">
+        <option value="lightblue">Light Blue</option>
+        <option value="lightcoral">Light Coral</option>
+        <option value="lightgreen">Light Green</option>
+        <option value="lightyellow">Light Yellow</option>
+        <option value="lightpink">Light Pink</option>
+      </select>
+      <button type="submit">Create Note</button>
+    </form>
+    <input type="text" id="search" placeholder="Search Notes" />
+    <select id="sort-method">
+      <option value="alphabet">Alphabetical</option>
+      <option value="creation-date-asc">Creation Date - Ascending</option>
+      <option value="creation-date-desc">Creation Date - Descending</option>
+      <option value="target-date-asc">Target Date - Ascending</option>
+      <option value="target-date-desc">Target Date - Descending</option>
+    </select>
+    <button id="delete-all">Delete All Notes</button>
+    <div id="notes-display"></div>
+
+    <template id="note-template">
+      <li>
+        <div style="background-color: unset">
+          <h3></h3>
+          <p class="content"></p>
+          <p class="target-date">Target Date: None</p>
+          <p class="creation-date"></p>
+          <button class="delete-note">Delete</button>
+        </div>
+      </li>
+    </template>
+
+    <script type="module" src="src/main.ts"></script>
+  </body>
+</html>
+
