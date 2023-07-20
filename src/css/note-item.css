@@ -1,0 +1,20 @@
+.note-item {
+  list-style: none;
+  aspect-ratio: 1 / 1;
+
+  -moz-transform: rotate(-1deg) skew(1deg, 1deg);
+  -webkit-transform: rotate(-1deg) skew(1deg, 1deg);
+  -o-transform: rotate(-1deg) skew(1deg, 1deg);
+  -ms-transform: rotate(-1deg) skew(1deg, 1deg);
+  transform: rotate(-1deg) skew(1deg, 1deg);
+
+  -webkit-box-shadow: -23px 17px 15px -4px rgba(0, 0, 0, 0.26),
+    -15px 30px 20px -12px rgba(0, 0, 0, 0.27);
+  box-shadow: -23px 17px 15px -4px rgba(0, 0, 0, 0.26),
+    -15px 30px 20px -12px rgba(0, 0, 0, 0.27);
+}
+
+.delete-note {
+  aspect-ratio: 1 / 1;
+  line-height: 0;
+}

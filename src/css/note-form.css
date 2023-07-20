@@ -1,0 +1,42 @@
+#note-form {
+  background-color: #f2f2f7;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  margin: 10px;
+  padding: 20px;
+  max-width: 600px;
+  margin: 10px auto;
+}
+
+#note-form input,
+#note-form textarea,
+#note-form select {
+  border: 1px solid #e5e5ea;
+  border-radius: 10px;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+  padding: 10px;
+  width: 100%;
+}
+
+#note-form button {
+  background-color: #007aff;
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 10px;
+  transition: background-color 0.3s ease;
+  width: 100%;
+}
+
+#note-form button:hover {
+  background-color: #0090ff;
+}
+
+@media (max-width: 600px) {
+  #note-form {
+    grid-template-columns: 1fr;
+  }
+}

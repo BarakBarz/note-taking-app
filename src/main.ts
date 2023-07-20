@@ -1,27 +1,38 @@
+import './scss/styles.scss';
+import * as bootstrap from 'bootstrap';
+
 import NotesManager from './notesManager';
 import Note from './note';
 import NoteItem from './note-item';
 import Section from './section';
-import { sortMethodInput, searchInput, noteForm, titleInput, contentInput, targetDateInput, bgColorInput, deleteAllButton } from './constants';
+import {
+  sortMethodInput,
+  searchInput,
+  noteForm,
+  titleInput,
+  contentInput,
+  targetDateInput,
+  bgColorInput,
+  deleteAllButton,
+} from './constants';
 
 const notesManager = new NotesManager();
-const noteTemplate = document.getElementById('note-template') as HTMLTemplateElement;
-const notesSection = new Section<Note>(
-  (note) => {
-    const noteItem = new NoteItem(note, noteTemplate);
-    const deleteButton = noteItem.element.querySelector('.delete-note');
-    if (deleteButton) {
-      deleteButton.addEventListener('click', () => {
-        notesManager.deleteNote(note);
-        renderNotes();
-      });
-    }
-    return noteItem.element;
-  },
-  '#notes-display'
-);
+const noteTemplate = document.getElementById(
+  'note-template',
+) as HTMLTemplateElement;
+const notesSection = new Section<Note>((note) => {
+  const noteItem = new NoteItem(note, noteTemplate);
+  const deleteButton = noteItem.element.querySelector('.delete-note');
+  if (deleteButton) {
+    deleteButton.addEventListener('click', () => {
+      notesManager.deleteNote(note);
+      renderNotes();
+    });
+  }
+  return noteItem.element;
+}, '#notes-display');
 
-function renderNotes() {
+function renderNotes(): void {
   const notes = notesManager.sortNotes(sortMethodInput.value);
   const searchQuery = searchInput.value;
   const filteredNotes = searchQuery
@@ -39,8 +50,10 @@ noteForm.addEventListener('submit', (event) => {
     : null;
   const bgColor = bgColorInput.value;
   const note = new Note(title, content, targetDate, bgColor);
+
   notesManager.addNote(note);
   noteForm.reset();
+
   renderNotes();
 });
 
@@ -54,5 +67,11 @@ deleteAllButton.addEventListener('click', () => {
   }
 });
 
+const offcanvasElementList = document.querySelectorAll('.offcanvas');
+const offcanvasList = [...offcanvasElementList].map(
+  (offcanvasEl) => new bootstrap.Offcanvas(offcanvasEl),
+);
+
 // Initial render
 renderNotes();
+
