@@ -13,9 +13,12 @@ class NotesManager {
         this.saveNotesToLocalStorage();
     }
 
-    deleteNote(index: number) {
-        this.notes.splice(index, 1);
-        this.saveNotesToLocalStorage();
+    deleteNote(note: Note) {
+        const index = this.notes.indexOf(note);
+        if (index !== -1) {
+            this.notes.splice(index, 1);
+            this.saveNotesToLocalStorage();
+        }
     }
 
     deleteAllNotes() {

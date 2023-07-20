@@ -14,9 +14,9 @@ class NoteItem {
         this.element.querySelector('h3')!.textContent = this.note.title;
         this.element.querySelector('.content')!.textContent = this.note.content;
         if (this.note.targetDate) {
-            this.element.querySelector('.target-date')!.textContent = `Target Date: ${this.note.targetDate.toISOString().split('T')[0]}`;
+            this.element.querySelector('.target-date')!.textContent = `Target Date: ${this.note.targetDate.toLocaleString().split('T')[0]}`;
         }
-        this.element.querySelector('.creation-date')!.textContent = `Creation Date: ${this.note.creationDate.toISOString().split('T')[0]}`;
+        this.element.querySelector('.creation-date')!.textContent = `Creation Date: ${this.note.creationDate.toLocaleString().split('T')[0]}`;
     }
 }
 

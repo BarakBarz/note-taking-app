@@ -2,7 +2,7 @@ class Note {
   title: string;
   content: string;
   targetDate: Date | null;
-  creationDate: Date;
+  public creationDate: Date = new Date()
   bgColor: string;
 
   constructor(
@@ -14,7 +14,6 @@ class Note {
     this.title = title;
     this.content = content;
     this.targetDate = targetDate;
-    this.creationDate = new Date(); // current date and time
     this.bgColor = bgColor;
   }
 }

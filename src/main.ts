@@ -1,38 +1,33 @@
 import NotesManager from './notesManager';
 import Note from './note';
-import { notesDisplay, sortMethodInput, searchInput, noteForm, titleInput, contentInput, targetDateInput, bgColorInput, deleteAllButton } from './constants';
+import NoteItem from './note-item';
+import Section from './section';
+import { sortMethodInput, searchInput, noteForm, titleInput, contentInput, targetDateInput, bgColorInput, deleteAllButton } from './constants';
 
 const notesManager = new NotesManager();
+const noteTemplate = document.getElementById('note-template') as HTMLTemplateElement;
+const notesSection = new Section<Note>(
+  (note) => {
+    const noteItem = new NoteItem(note, noteTemplate);
+    const deleteButton = noteItem.element.querySelector('.delete-note');
+    if (deleteButton) {
+      deleteButton.addEventListener('click', () => {
+        notesManager.deleteNote(note);
+        renderNotes();
+      });
+    }
+    return noteItem.element;
+  },
+  '#notes-display'
+);
 
 function renderNotes() {
-  notesDisplay.textContent = '';
   const notes = notesManager.sortNotes(sortMethodInput.value);
   const searchQuery = searchInput.value;
   const filteredNotes = searchQuery
     ? notesManager.searchNotes(searchQuery)
     : notes;
-  filteredNotes.forEach((note, index) => {
-    const noteElement: HTMLDivElement = document.createElement('div');
-    noteElement.className = 'note';
-    noteElement.style.backgroundColor = note.bgColor;
-    noteElement.innerHTML = `
-            <h2>${note.title}</h2>
-            <p>${note.content}</p>
-            <p>Target date: ${
-              note.targetDate ? note.targetDate.toDateString() : 'N/A'
-            }</p>
-            <p>Creation date: ${note.creationDate.toDateString()}</p>
-            <button class="delete-note">Delete</button>
-        `;
-    const deleteButton = noteElement.querySelector('.delete-note');
-    if (deleteButton) {
-      deleteButton.addEventListener('click', () => {
-        notesManager.deleteNote(index);
-        renderNotes();
-      });
-    }
-    notesDisplay.appendChild(noteElement);
-  });
+  notesSection.render(filteredNotes);
 }
 
 noteForm.addEventListener('submit', (event) => {
@@ -61,4 +56,3 @@ deleteAllButton.addEventListener('click', () => {
 
 // Initial render
 renderNotes();
-
