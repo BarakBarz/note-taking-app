@@ -15,6 +15,27 @@ $position-values: (
 @import 'bootstrap/scss/mixins';
 @import 'bootstrap/scss/_utilities';
 
+$grid-breakpoints: (
+  xs: 0,
+  s: 410px,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px,
+);
+
+$font-sizes: (
+  1: $h1-font-size,
+  2: $h2-font-size,
+  3: $h3-font-size,
+  4: $h4-font-size,
+  5: $h5-font-size,
+  6: $h6-font-size,
+  7: 0.8rem,
+  8: 0.7rem,
+);
+
 $utilities: map-merge(
   $utilities,
   (
@@ -38,13 +59,43 @@ $utilities: map-merge(
       values: (
         20: 20%,
         25: 25%,
+        30: 30%,
         50: 50%,
         70: 70%,
         75: 75%,
         80: 80%,
+        85: 85%,
+        90: 90%,
         100: 100%,
         auto: auto,
       ),
+    ),
+  )
+);
+
+$utilities: map-merge(
+  $utilities,
+  (
+    'viewport-height': (
+      property: height,
+      class: vh,
+      values: (
+        50: 50vh,
+        100: 100vh,
+      ),
+    ),
+  )
+);
+
+$utilities: map-merge(
+  $utilities,
+  (
+    'font-size': (
+      rfs: true,
+      responsive: true,
+      property: font-size,
+      class: fs,
+      values: $font-sizes,
     ),
   )
 );

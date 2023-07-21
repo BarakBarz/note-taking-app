@@ -1,6 +1,7 @@
 .note-item {
   list-style: none;
   aspect-ratio: 1 / 1;
+  min-height: 100%;
 
   -moz-transform: rotate(-1deg) skew(1deg, 1deg);
   -webkit-transform: rotate(-1deg) skew(1deg, 1deg);

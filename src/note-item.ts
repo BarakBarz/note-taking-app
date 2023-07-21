@@ -1,24 +1,35 @@
 import Note from "./note";
-
 class NoteItem {
     note: Note;
     element: HTMLLIElement;
 
     constructor(note: Note, templateElement: HTMLTemplateElement) {
         this.note = note;
-        const node = document.importNode(templateElement.content, true);
-        this.element = node.firstElementChild as HTMLLIElement;
+        this.element = this.createNoteElement(templateElement);
+    }
 
-        // Set note values
-        this.element!.style.backgroundColor = this.note.bgColor;
-        this.element.querySelector('h4')!.textContent = this.note.title;
-        this.element.querySelector('.content')!.textContent = this.note.content;
-        if (this.note.targetDate) {
-            this.element.querySelector('.target-date')!.textContent = `Target Date: ${this.note.targetDate.toLocaleString().split('T')[0]}`;
-        } else {
-            this.element.querySelector('.target-date')!.textContent = ''
+    private createNoteElement(templateElement: HTMLTemplateElement): HTMLLIElement {
+        const node = document.importNode(templateElement.content, true);
+        const element = node.firstElementChild as HTMLLIElement;
+
+        element.style.backgroundColor = this.note.bgColor;
+        this.setTextContent(element, 'h4', this.note.title);
+        this.setTextContent(element, '.content', this.note.content);
+        this.setTextContent(element, '.target-date', this.formatDate(this.note.targetDate, 'Target Date'));
+        this.setTextContent(element, '.creation-date', this.formatDate(this.note.creationDate, 'Creation Date'));
+
+        return element;
+    }
+
+    private setTextContent(element: HTMLElement, selector: string, text: string) {
+        const childElement = element.querySelector(selector);
+        if (childElement) {
+            childElement.textContent = text;
         }
-        this.element.querySelector('.creation-date')!.textContent = `Creation Date: ${this.note.creationDate.toLocaleString().split('T')[0]}`;
+    }
+
+    private formatDate(date: Date | null, label: string): string {
+        return date ? `${label}: ${date.toLocaleString().split(',')[0]}` : '';
     }
 }
 

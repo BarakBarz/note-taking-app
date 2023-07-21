@@ -7,9 +7,9 @@
     <link rel="shortcut icon" href="vite.svg" type="image/x-icon" />
     <title>Note Taking App</title>
   </head>
-  <body class="container position-relative">
+  <body class="container bg-body-secondary position-relative">
     <div
-      class="offcanvas offcanvas-top"
+      class="offcanvas offcanvas-top vh-50"
       tabindex="-1"
       id="offcanvasTop"
       aria-labelledby="offcanvasTopLabel"
@@ -57,7 +57,7 @@
     <header class="p1"><h1 class="p-3 text-center">Note Taking App</h1></header>
 
     <main>
-      <section class="rounded border container text-center m-2 w-70 mx-auto ">
+      <section class="rounded border container text-center m-2 w-70 mx-auto bg-secondary-subtle">
         <form id="note-form" class="row gx-3">
           <div class="col-md-6">
             <label for="title" class="form-label">Note Title</label>
@@ -100,8 +100,13 @@
         </form>
       </section>
 
-      <section class="container  position-relative">
-        <ul id="notes-display" class="d-flex justify-content-center list-unstyled ml-auto mr-auto row row-cols-xxl-4 row-cols-xl-4 row-cols-lg-3 row-cols-md-3 row-cols-1"></ul>
+      <section class="container position-relative">
+        <ul id="notes-display" class="
+        d-flex 
+        justify-content-center 
+        list-unstyled 
+        row
+        "></ul>
         <button
           class="btn btn-light m-2 position-sticky bottom-3 start-100 border-secondary-subtle p-2"
           type="button"
@@ -115,20 +120,40 @@
     </main>
 
     <template id="note-template">
-      <li class="note-item d-flex flex-column justify-content-between m-2 p-2 text-break position-relative">
-        <div class="text-center">
-          <h4 class="w-80 mx-auto"></h4>
-        
-        </div>
-        <div class="text-center flex-fill">
-          <p class="content m-0"></p>
+      <li class="
+      note-item 
+      d-flex 
+      flex-column 
+      justify-content-between 
+      m-2 
+      p-2 
+      text-break 
+      position-relative
+      col-11
+      col-sm-5
+      col-md-4
+      col-lg-3
+      fs-6
+      fs-s-5
+      fs-sm-8
+      fs-md-7
+      fs-lg-7
+      fs-xl-6
+      fs-xxl-5
+      ">
 
+        <div class="text-center">
+          <h4 class="w-80 mx-auto fs-sm-5"></h4>
         </div>
+
+        <div class="flex-fill text-center">
+          <p class="content w-80 mx-auto mt-2 mb-0"></p>
+        </div>
+
         <div class="text-center">
           <p class="target-date m-0">Target Date: None</p>
           <p class="creation-date m-0"></p>
         </div>
-        
         
         <button
           type="button"
@@ -138,6 +163,7 @@
           <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
         </svg>
         </button>
+
       </li>
     </template>
 

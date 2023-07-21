@@ -11,7 +11,6 @@ class NotesManager {
   addNote(note: Note) {
     this.notes.push(note);
     this.saveNotesToLocalStorage();
-    this.getNotesFromLocalStorage();
   }
 
   deleteNote(note: Note) {
@@ -28,8 +27,12 @@ class NotesManager {
   }
 
   getNotesFromLocalStorage(): Note[] {
-    const notes = localStorage.getItem('notes');
-    return notes ? JSON.parse(notes) : [];
+    const storedNotes = JSON.parse(localStorage.getItem('notes') || '[]');
+    return storedNotes.map((note: any) => ({
+      ...note,
+      creationDate: new Date(note.creationDate),
+      targetDate: note.targetDate ? new Date(note.targetDate) : null,
+    }));
   }
 
   saveNotesToLocalStorage() {
