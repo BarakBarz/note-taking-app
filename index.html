@@ -22,7 +22,7 @@
           aria-label="Close"
         ></button>
       </div>
-      <div class="offcanvas-body container p-2">
+      <div class="offcanvas-body container p-1">
         <form class="d-flex" role="search">
           <input
             class="form-control"
@@ -100,10 +100,10 @@
         </form>
       </section>
 
-      <section class="container text-center position-relative">
-        <ul id="notes-display" class="row row-cols-xxl-4 row-cols-lg-3 row-cols-md-2"></ul>
+      <section class="container  position-relative">
+        <ul id="notes-display" class="d-flex justify-content-center list-unstyled ml-auto mr-auto row row-cols-xxl-4 row-cols-xl-4 row-cols-lg-3 row-cols-md-3 row-cols-1"></ul>
         <button
-          class="btn btn-light m-2 position-sticky bottom-3 start-100 border-secondary-subtle"
+          class="btn btn-light m-2 position-sticky bottom-3 start-100 border-secondary-subtle p-2"
           type="button"
           data-bs-toggle="offcanvas"
           data-bs-target="#offcanvasTop"
@@ -115,11 +115,21 @@
     </main>
 
     <template id="note-template">
-      <li class="note-item col-6 cols-md-8 m-2 p-2 text-break position-relative">
-        <h4 class="w-80 mx-auto"></h4>
-        <p class="content m-0"></p>
-        <p class="target-date m-0">Target Date: None</p>
-        <p class="creation-date m-0"></p>
+      <li class="note-item d-flex flex-column justify-content-between m-2 p-2 text-break position-relative">
+        <div class="text-center">
+          <h4 class="w-80 mx-auto"></h4>
+        
+        </div>
+        <div class="text-center flex-fill">
+          <p class="content m-0"></p>
+
+        </div>
+        <div class="text-center">
+          <p class="target-date m-0">Target Date: None</p>
+          <p class="creation-date m-0"></p>
+        </div>
+        
+        
         <button
           type="button"
           class="btn btn-outline-danger align-middle position-absolute top-3 end-3 lh-xs p-1 delete-note"
