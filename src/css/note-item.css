@@ -1,4 +1,6 @@
 .note-item {
+  font-family: 'Crafty Girls', 'Luizi';
+  font-weight: 600;
   list-style: none;
   aspect-ratio: 1 / 1;
   min-height: 100%;

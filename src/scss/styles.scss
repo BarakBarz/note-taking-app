@@ -1,5 +1,7 @@
 $position-values: (
   0: 0,
+  1: 1%,
+  2: 2%,
   3: 3%,
   25: 25%,
   50: 50%,
@@ -14,6 +16,8 @@ $position-values: (
 @import 'bootstrap/scss/maps';
 @import 'bootstrap/scss/mixins';
 @import 'bootstrap/scss/_utilities';
+
+
 
 $grid-breakpoints: (
   xs: 0,

@@ -4,10 +4,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/src/css/styles.css" />
-    <link rel="shortcut icon" href="vite.svg" type="image/x-icon" />
+    <link rel="shortcut icon" href="notes.svg" type="image/x-icon" />
     <title>Note Taking App</title>
   </head>
   <body class="container bg-body-secondary position-relative">
+    <div class="spinner-wrapper">
+      <div class="text-center m-5">
+        <div
+          class="spinner-border text-primary"
+          role="status"
+          style="height: 4rem; width: 4rem"
+        >
+          <span class="visually-hidden"></span>
+        </div>
+      </div>
+    </div>
     <div
       class="offcanvas offcanvas-top vh-50"
       tabindex="-1"
@@ -57,7 +68,9 @@
     <header class="p1"><h1 class="p-3 text-center">Note Taking App</h1></header>
 
     <main>
-      <section class="rounded border container text-center m-2 w-70 mx-auto bg-secondary-subtle">
+      <section
+        class="rounded border container text-center m-2 w-70 mx-auto bg-secondary-subtle"
+      >
         <form id="note-form" class="row gx-3">
           <div class="col-md-6">
             <label for="title" class="form-label">Note Title</label>
@@ -85,10 +98,10 @@
           <div class="col-md-6">
             <label for="bg-color" class="form-label">Color</label>
             <select class="form-control" id="bg-color">
+              <option value="lightyellow">Light Yellow</option>
               <option value="lightblue">Light Blue</option>
               <option value="lightcoral">Light Coral</option>
               <option value="lightgreen">Light Green</option>
-              <option value="lightyellow">Light Yellow</option>
               <option value="lightpink">Light Pink</option>
             </select>
           </div>
@@ -101,12 +114,10 @@
       </section>
 
       <section class="container position-relative">
-        <ul id="notes-display" class="
-        d-flex 
-        justify-content-center 
-        list-unstyled 
-        row
-        "></ul>
+        <ul
+          id="notes-display"
+          class="d-flex justify-content-center list-unstyled row"
+        ></ul>
         <button
           class="btn btn-light m-2 position-sticky bottom-3 start-100 border-secondary-subtle p-2"
           type="button"
@@ -120,50 +131,41 @@
     </main>
 
     <template id="note-template">
-      <li class="
-      note-item 
-      d-flex 
-      flex-column 
-      justify-content-between 
-      m-2 
-      p-2 
-      text-break 
-      position-relative
-      col-11
-      col-sm-5
-      col-md-4
-      col-lg-3
-      fs-6
-      fs-s-5
-      fs-sm-8
-      fs-md-7
-      fs-lg-7
-      fs-xl-6
-      fs-xxl-5
-      ">
-
+      <li
+        class="note-item d-flex flex-column justify-content-between m-2 p-2 text-break position-relative col-11 col-sm-5 col-md-4 col-lg-3 fs-6 fs-s-5 fs-sm-8 fs-md-7 fs-lg-7 fs-xl-6 fs-xxl-5"
+      >
         <div class="text-center">
-          <h4 class="w-80 mx-auto fs-sm-5"></h4>
+          <h4 class="w-80 mx-auto fs-2 fs-sm-6 fs-md-4 mb-sm-0"></h4>
         </div>
 
         <div class="flex-fill text-center">
-          <p class="content w-80 mx-auto mt-2 mb-0"></p>
+          <p class="content w-80 w-sm-100 mx-auto mt-2 mb-0"></p>
         </div>
 
-        <div class="text-center">
+        <div class="text-center fs-8">
           <p class="target-date m-0">Target Date: None</p>
           <p class="creation-date m-0"></p>
         </div>
-        
+
         <button
           type="button"
-          class="btn btn-outline-danger align-middle position-absolute top-3 end-3 lh-xs p-1 delete-note"
+          class="btn btn-outline-danger align-middle position-absolute top-2 end-2 lh-xs p-1
+          fs-sm-8
+          delete-note"
         >
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
-          <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
-        </svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="1em"
+            height="1em"
+            fill="currentColor"
+            class="bi bi-x"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"
+            />
+          </svg>
         </button>
-
       </li>
     </template>
 

@@ -1,6 +1,28 @@
- @import 'note-item.css';
+@import 'fonts.css';
+@import 'note-item.css';
 /* @import 'note-form.css';
 @import 'notes-section.css';
 @import 'sort-method.css';
 @import 'delete-all.css'; */
+
+
+
+.spinner-wrapper {
+  background-color: rgb(233, 236, 239);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s;
+  z-index: 1;
+}
+
+.spinner-border {
+  height: 60px;
+  width: 60px;
+}
 

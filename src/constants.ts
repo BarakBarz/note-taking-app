@@ -1,3 +1,6 @@
+
+export const bodyElement = document.querySelector("body") as HTMLBodyElement;
+export const spinnerWrapperElement = document.querySelector(".spinner-wrapper") as HTMLDivElement;
 export const titleInput = document.getElementById('title') as HTMLInputElement;
 export const contentInput = document.getElementById(
   'content',

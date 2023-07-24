@@ -27,8 +27,8 @@ class NotesManager {
   }
 
   getNotesFromLocalStorage(): Note[] {
-    const storedNotes = JSON.parse(localStorage.getItem('notes') || '[]');
-    return storedNotes.map((note: any) => ({
+    this.notes = JSON.parse(localStorage.getItem('notes') || '[]');
+    return this.notes.map((note: any) => ({
       ...note,
       creationDate: new Date(note.creationDate),
       targetDate: note.targetDate ? new Date(note.targetDate) : null,
@@ -45,6 +45,10 @@ class NotesManager {
         note.title.toLowerCase().includes(query.toLowerCase()) ||
         note.content.toLowerCase().includes(query.toLowerCase()),
     );
+  }
+
+  get getNotes() {
+    return this.notes
   }
 
   sortNotes(sortMethod: string): Note[] {

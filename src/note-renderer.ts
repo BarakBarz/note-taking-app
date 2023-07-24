@@ -1,5 +1,5 @@
 import Note from "./note";
-class NoteItem {
+class NoteRenderer {
     note: Note;
     element: HTMLLIElement;
 
@@ -33,4 +33,4 @@ class NoteItem {
     }
 }
 
-export default NoteItem;
+export default NoteRenderer;
