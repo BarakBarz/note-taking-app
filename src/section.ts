@@ -9,7 +9,6 @@ class Section<T> {
   
     render(items: T[]) {
         this.container.textContent = '';
-        let count = 0;
         for (let item of items) {
             const newItem = this.renderFunction(item);
             this.container.append(newItem);
