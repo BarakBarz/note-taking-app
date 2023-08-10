@@ -72,7 +72,7 @@ noteForm.addEventListener('submit', (event) => {
 searchInput.addEventListener('input', renderNotes);
 sortMethodInput.addEventListener('change', renderNotes);
 
-deleteAllButton.addEventListener('click', (e) => {
+deleteAllButton.addEventListener('click', () => {
   if (confirm('Are you sure you want to delete all notes?')) {
     notesManager.deleteAllNotes();
     renderNotes();
@@ -83,6 +83,7 @@ const offcanvasElementList = document.querySelectorAll('.offcanvas');
 const offcanvasList = [...offcanvasElementList].map(
   (offcanvasEl) => new bootstrap.Offcanvas(offcanvasEl),
 );
+offcanvasList
 
 // Initial render
 renderNotes();
